@@ -1,0 +1,23 @@
+{
+    "name" : "kapitanluffy/propel-model-parser-bundle",
+    "description" : "parses propel models to json-fiable data",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "kapitanluffy pirata",
+        "email" : "kapitanluffy@gmail.com"
+    }],
+    "keywords" : [
+        "propel"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "propel/propel-bundle": "1.4.*",
+    },
+    "autoload" : {
+        "psr-0" : {
+            "kapitanluffy\\PropelModelParserBundle" : ""
+        }
+    }
+}

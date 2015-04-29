@@ -1,0 +1,3 @@
+propel_model_parser_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: PropelModelParserBundle:Default:index }
