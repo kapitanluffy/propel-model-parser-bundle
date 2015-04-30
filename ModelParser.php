@@ -72,7 +72,7 @@ class ModelParser
      */
     public function parseObject($item, $extended_properties = array())
     {
-        if(!method_exists($item, 'parseObject')) throw new \Exception("Object has not parseObject() method", 1);
+        // if(!method_exists($item, 'parseObject')) throw new \Exception("Object has not parseObject() method", 1);
 
         $_extended_data = array();
         foreach($extended_properties as $key => $value){
@@ -105,14 +105,17 @@ class ModelParser
         if(@$_default_data['updated_at'] instanceof \DateTime) $_default_data['updated_at'] = $_default_data['updated_at']->format('Y-m-d H:i:s O');
 
         $item->data = array_merge($_default_data, $_extended_data);
-        $data = $item->parseObject();
 
-        if(!is_array($data)) throw new \Exception("Object::parseObject() does not return an array", 1);
+        if(method_exists($item, 'parseObject')) {
+            $data = $item->parseObject();
+            // if(!is_array($data)) throw new \Exception("Object::parseObject() does not return an array", 1);
+        }
+
 
         if(!empty($item->resource)){
-            $data['meta'] = array();
-            $data['meta']['view_url'] = $this->router->generate($item->resource['route'], $item->resource['parameters'], true);
-            $data['meta']['resource_url'] = $this->router->generate($item->resource['route'], $item->resource['parameters'], true);
+            $item->data['meta'] = array();
+            // $item->data['meta']['view_url'] = $this->router->generate($item->resource['route'], $item->resource['parameters'], true);
+            $item->data['meta']['resource_url'] = $this->router->generate($item->resource['route'], $item->resource['parameters'], true);
         }
         return $data;
     }
