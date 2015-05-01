@@ -117,7 +117,7 @@ class ModelParser
             // $item->data['meta']['view_url'] = $this->router->generate($item->resource['route'], $item->resource['parameters'], true);
             $item->data['meta']['resource_url'] = $this->router->generate($item->resource['route'], $item->resource['parameters'], true);
         }
-        return $data;
+        return $item->data;
     }
 
     protected function _parseObject($o, $extended_properties = array())
