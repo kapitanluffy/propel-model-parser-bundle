@@ -1,7 +1,4 @@
-services:
+# services:
 #    propel_model_parser.example:
 #        class: kapitanluffy\PropelModelParserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
-    propel_model_parser:
-        class: kapitanluffy\PropelModelParserBundle\ModelParser
-        arguments: [@router]
